@@ -589,10 +589,7 @@ func RedirectHandler(h http.Handler) http.HandlerFunc {
 				http.Redirect(w, r, "https://transfer.sh"+r.RequestURI, 301)
 				return
 			}
-		} else if ipAddrFromRemoteAddr(r.Host) != "transfer.sh" {
-			http.Redirect(w, r, "https://transfer.sh"+r.RequestURI, 301)
-			return
-		}
+		} 
 
 		h.ServeHTTP(w, r)
 	}
